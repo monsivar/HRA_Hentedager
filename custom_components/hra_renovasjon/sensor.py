@@ -93,6 +93,7 @@ class HraSummarySensor(HraSensorBase):
         super().__init__(coordinator)
         self._attr_name = "HRA neste henting"
         self._attr_unique_id = f"{coordinator.agreement_guid}_next_collection"
+        self._attr_device_info = coordinator.collection_days_device_info
 
     @property
     def native_value(self) -> date | None:
