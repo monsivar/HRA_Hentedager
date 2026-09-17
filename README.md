@@ -60,4 +60,4 @@ Bildene i `custom_components/hra_renovasjon/assets` er hentet fra HRA sine offen
 
 ## Ansvarsfraskrivelse
 
-Dette er et uavhengig og uoffisielt prosjekt, og integrasjonen har ingen tilknytning til eller godkjenning fra Hadeland og Ringerike Avfallsselskap (HRA). Den er laget av monsivar for å gjøre hverdagen litt enklere for mennesker som bor på Ringerike og Hadeland.
+Dette er et uavhengig og uoffisielt prosjekt, og integrasjonen har ingen tilknytning til eller godkjenning fra Hadeland og Ringerike Avfallsselskap (HRA). Den er laget for å gjøre hverdagen litt enklere for mennesker som bor på Ringerike og Hadeland.
