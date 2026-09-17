@@ -10,6 +10,7 @@ En HACS-kompatibel custom integration for HRA (Hadeland og Ringerike Avfallssels
 - En samlet sensor `HRA neste henting` med neste dato, fraksjon, dager igjen og kommende hentedager som attributter.
 - En binærsensor `HRA hentedag` som er `on` når minst én fraksjon hentes i dag, med attributtene `rest`, `mat`, `papir`, `glass` og `plast` for neste henting.
 - En kalender med heldagshendelser for alle kommende hentedager.
+- Kalenderhendelser får en beskrivende emoji foran avfallstypen.
 - Entitetene organiseres i Home Assistant som to logiske enheter: fraksjons-/datosensorene samles separat fra binærsensoren og kalenderen.
 - HRA-symboler som lokale bilder på fraksjonssensorene. Papir/kartong og glass/metall vises som to originale HRA-symboler side ved side.
 - HRA-logo som integrasjonsikon og logo i Home Assistant.

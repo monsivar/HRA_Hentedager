@@ -10,8 +10,14 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import CALENDAR_NAME, DOMAIN
+from .const import CALENDAR_NAME, DOMAIN, WASTE_EMOJIS
 from .coordinator import HraCoordinator
+
+
+def _event_summary(waste_type: str) -> str:
+    """Return a readable calendar title with a fraction emoji."""
+    emoji = WASTE_EMOJIS.get(waste_type, "♻️")
+    return f"{emoji} HRA: {waste_type}"
 
 
 async def async_setup_entry(
@@ -40,7 +46,7 @@ class HraCalendar(CoordinatorEntity[HraCoordinator], CalendarEntity):
             return None
         waste_type, event_date = events[0]
         return CalendarEvent(
-            summary=f"HRA: {waste_type}",
+            summary=_event_summary(waste_type),
             start=event_date,
             end=event_date + timedelta(days=1),
         )
@@ -53,7 +59,7 @@ class HraCalendar(CoordinatorEntity[HraCoordinator], CalendarEntity):
         end = end_date.date()
         return [
             CalendarEvent(
-                summary=f"HRA: {waste_type}",
+                summary=_event_summary(waste_type),
                 start=collection_date,
                 end=collection_date + timedelta(days=1),
                 description=self.coordinator.property_data.get("name"),

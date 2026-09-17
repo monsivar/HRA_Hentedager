@@ -20,6 +20,13 @@ ATTR_WASTE_TYPE = "waste_type"
 
 ICON = "mdi:trash-can-outline"
 CALENDAR_NAME = "HRA hentedager"
+WASTE_EMOJIS = {
+    "Restavfall": "🗑️",
+    "Matavfall": "🍎",
+    "Plastemballasje": "🧴",
+    "Papir, papp og kartong": "📄",
+    "Glass- og metallemballasje": "🥫",
+}
 
 ASSET_BASE_URL = "/api/hra_renovasjon/assets"
 CARD_URL = "/api/hra_renovasjon/hra-renovasjon-card.js"
