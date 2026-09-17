@@ -1,0 +1,7 @@
+{
+  "name": "HRA renovasjon",
+  "content_in_root": false,
+  "render_readme": true,
+  "country": ["NO"],
+  "homeassistant": "2024.1.0"
+}

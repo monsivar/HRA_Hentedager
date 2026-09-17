@@ -1,0 +1,28 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to HRA",
+        "description": "Enter the address for which collection dates should be fetched.",
+        "data": {
+          "address": "Address",
+          "scan_interval": "Update interval (hours)"
+        }
+      },
+      "select_address": {
+        "title": "Select address",
+        "description": "HRA found multiple matches. Select the property to use.",
+        "data": {"property": "Property"}
+      }
+    },
+    "error": {
+      "invalid_address": "Enter an address.",
+      "address_not_found": "No HRA address matched this search.",
+      "cannot_connect": "Could not contact HRA."
+    },
+    "abort": {"already_configured": "This HRA agreement is already configured."}
+  },
+  "options": {
+    "step": {"init": {"data": {"scan_interval": "Update interval (hours)"}}}
+  }
+}

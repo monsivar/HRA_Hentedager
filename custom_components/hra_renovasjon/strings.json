@@ -1,0 +1,38 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Koble til HRA",
+        "description": "Skriv inn adressen du vil hente renovasjonsdager for.",
+        "data": {
+          "address": "Adresse",
+          "scan_interval": "Oppdateringsintervall (timer)"
+        }
+      },
+      "select_address": {
+        "title": "Velg adresse",
+        "description": "HRA fant flere treff. Velg eiendommen som skal brukes.",
+        "data": {
+          "property": "Eiendom"
+        }
+      }
+    },
+    "error": {
+      "invalid_address": "Skriv inn en adresse.",
+      "address_not_found": "Fant ingen HRA-adresse med dette søket.",
+      "cannot_connect": "Kunne ikke kontakte HRA akkurat nå."
+    },
+    "abort": {
+      "already_configured": "Denne HRA-avtalen er allerede konfigurert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Oppdateringsintervall (timer)"
+        }
+      }
+    }
+  }
+}
