@@ -3,10 +3,10 @@
   "name": "HRA renovasjon",
   "codeowners": ["@monsivar"],
   "config_flow": true,
-  "dependencies": ["http"],
+  "dependencies": ["frontend", "http"],
   "documentation": "https://github.com/monsivar/HRA_Hentedager#readme",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/monsivar/HRA_Hentedager/issues",
   "requirements": [],
-  "version": "0.1.2"
+  "version": "0.2.0"
 }

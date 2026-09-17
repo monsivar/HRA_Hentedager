@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import timedelta
 from pathlib import Path
 
+from homeassistant.components.frontend import add_extra_js_url
 from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
@@ -14,6 +15,8 @@ from homeassistant.helpers import device_registry as dr
 
 from .const import (
     ASSET_BASE_URL,
+    CARD_URL,
+    CARD_VERSION,
     CONF_SCAN_INTERVAL,
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
@@ -30,11 +33,16 @@ CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_setup(hass: HomeAssistant, config: dict) -> bool:
-    """Register local HRA image assets with Home Assistant."""
+    """Register local HRA assets with Home Assistant."""
     assets_path = Path(__file__).parent / "assets"
+    card_path = Path(__file__).parent / "www" / "hra-renovasjon-card.js"
     await hass.http.async_register_static_paths(
-        [StaticPathConfig(ASSET_BASE_URL, str(assets_path), True)]
+        [
+            StaticPathConfig(ASSET_BASE_URL, str(assets_path), True),
+            StaticPathConfig(CARD_URL, str(card_path), True),
+        ]
     )
+    add_extra_js_url(hass, f"{CARD_URL}?v={CARD_VERSION}")
     return True
 
 

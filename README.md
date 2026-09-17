@@ -15,6 +15,26 @@ En HACS-kompatibel custom integration for HRA (Hadeland og Ringerike Avfallssels
 - HRA-logo som integrasjonsikon og logo i Home Assistant.
 - Oppdateringsintervall fra 1 til 168 timer, standard 24 timer.
 
+## HRA-kort
+
+Integrasjonen inneholder et Mushroom-inspirert Lovelace-kort som grupperer flere avfallstyper når de har samme hentedato. Kortet bruker sammendragssensorens `upcoming`-attributt og viser neste henting samt de neste datoene.
+
+Kortet registreres automatisk av integrasjonen og kan legges til uten manuell dashboard-ressurs:
+
+```yaml
+type: custom:hra-renovasjon-card
+max_dates: 4
+```
+
+Når det bare finnes én HRA-avtale, finner kortet selv riktig sammendragssensor og kalender. Ved flere avtaler kan de velges i Home Assistants visuelle kortredigering, eller angis eksplisitt:
+
+```yaml
+type: custom:hra-renovasjon-card
+entity: sensor.hra_neste_henting
+calendar: calendar.hra_hentedager
+max_dates: 4
+```
+
 ## Installasjon
 
 1. Legg dette repositoryet til i HACS som et custom repository av typen **Integration**.

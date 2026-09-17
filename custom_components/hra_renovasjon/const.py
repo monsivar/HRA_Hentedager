@@ -22,6 +22,8 @@ ICON = "mdi:trash-can-outline"
 CALENDAR_NAME = "HRA hentedager"
 
 ASSET_BASE_URL = "/api/hra_renovasjon/assets"
+CARD_URL = "/api/hra_renovasjon/hra-renovasjon-card.js"
+CARD_VERSION = "0.2.0"
 ASSET_FILES = {
     "Restavfall": "waste-new.png",
     "Matavfall": "organic-new.png",
