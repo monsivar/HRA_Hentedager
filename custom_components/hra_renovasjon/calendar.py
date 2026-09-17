@@ -30,7 +30,7 @@ class HraCalendar(CoordinatorEntity[HraCoordinator], CalendarEntity):
         super().__init__(coordinator)
         self._attr_name = CALENDAR_NAME
         self._attr_unique_id = f"{coordinator.agreement_guid}_calendar"
-        self._attr_device_info = coordinator.device_info
+        self._attr_device_info = coordinator.collection_days_device_info
 
     @property
     def event(self) -> CalendarEvent | None:

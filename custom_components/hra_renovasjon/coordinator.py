@@ -66,12 +66,22 @@ class HraCoordinator(DataUpdateCoordinator[list[HraCollection]]):
     @property
     def device_info(self) -> dict[str, Any]:
         """Return the shared Home Assistant device description."""
-        name = self.property_data.get("name", "valgt adresse")
         return {
             "identifiers": {(DOMAIN, self.agreement_guid)},
             "name": "Hentedager av HRA",
             "model": "Custom component basert på åpne data fra monsivar",
             "configuration_url": "https://github.com/monsivar/HRA_Hentedager",
+        }
+
+    @property
+    def collection_days_device_info(self) -> dict[str, Any]:
+        """Return the separate device description for day/calendar entities."""
+        return {
+            "identifiers": {(DOMAIN, f"{self.agreement_guid}_collection_days")},
+            "name": "HRA hentedag og kalender",
+            "model": "Custom component basert på åpne data fra monsivar",
+            "configuration_url": "https://github.com/monsivar/HRA_Hentedager",
+            "via_device": (DOMAIN, self.agreement_guid),
         }
 
     async def _async_update_data(self) -> list[HraCollection]:

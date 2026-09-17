@@ -45,7 +45,7 @@ class HraCollectionDaySensor(
     def __init__(self, coordinator: HraCoordinator) -> None:
         super().__init__(coordinator)
         self._attr_unique_id = f"{coordinator.agreement_guid}_collection_day"
-        self._attr_device_info = coordinator.device_info
+        self._attr_device_info = coordinator.collection_days_device_info
 
     @property
     def is_on(self) -> bool:
