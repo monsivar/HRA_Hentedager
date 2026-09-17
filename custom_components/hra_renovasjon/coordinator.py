@@ -6,6 +6,7 @@ from datetime import date, timedelta
 import logging
 from typing import Any
 
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from homeassistant.core import HomeAssistant
@@ -52,9 +53,11 @@ class HraCoordinator(DataUpdateCoordinator[list[HraCollection]]):
         agreement_guid: str,
         property_data: dict[str, Any],
         update_interval: timedelta,
+        config_entry_id: str,
     ) -> None:
         self.agreement_guid = agreement_guid
         self.property_data = property_data
+        self.config_entry_id = config_entry_id
         self.api = HraApi(async_get_clientsession(hass))
         super().__init__(
             hass,
@@ -76,13 +79,19 @@ class HraCoordinator(DataUpdateCoordinator[list[HraCollection]]):
     @property
     def collection_days_device_info(self) -> dict[str, Any]:
         """Return the separate device description for day/calendar entities."""
-        return {
+        device_info: dict[str, Any] = {
             "identifiers": {(DOMAIN, f"{self.agreement_guid}_collection_days")},
             "name": "HRA hentedag og kalender",
             "model": "Custom component basert på åpne data fra monsivar",
             "configuration_url": "https://github.com/monsivar/HRA_Hentedager",
-            "via_device": (DOMAIN, self.agreement_guid),
         }
+        if parent_device_id := dr.async_get_device_id_by_identifier(
+            self.hass,
+            (DOMAIN, self.agreement_guid),
+            config_entry_id=self.config_entry_id,
+        ):
+            device_info["via_device_id"] = parent_device_id
+        return device_info
 
     async def _async_update_data(self) -> list[HraCollection]:
         try:

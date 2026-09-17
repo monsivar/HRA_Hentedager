@@ -144,14 +144,11 @@ class HraConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     @callback
     def async_get_options_flow(config_entry: config_entries.ConfigEntry):
         """Return the options flow."""
-        return HraOptionsFlow(config_entry)
+        return HraOptionsFlow()
 
 
 class HraOptionsFlow(config_entries.OptionsFlow):
     """Allow the update interval to be changed after setup."""
-
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        self.config_entry = config_entry
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
