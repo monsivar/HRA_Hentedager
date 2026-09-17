@@ -57,3 +57,7 @@ API-et kan endres av HRA uten varsel. Integrasjonen er ikke offisielt tilknyttet
 ## Bilder
 
 Bildene i `custom_components/hra_renovasjon/assets` er hentet fra HRA sine offentlige bildeadresser. De seks originale symbolene beholdes uendret. De kombinerte fraksjonene bruker lokale kvadratiske PNG-filer med heldekkende bakgrunn og de to originale symbolene side ved side, med lik luft rundt symbolene.
+
+## Ansvarsfraskrivelse
+
+Dette er et uavhengig og uoffisielt prosjekt, og integrasjonen har ingen tilknytning til eller godkjenning fra Hadeland og Ringerike Avfallsselskap (HRA). Den er laget av monsivar for å gjøre hverdagen litt enklere for mennesker som bor på Ringerike og Hadeland.
